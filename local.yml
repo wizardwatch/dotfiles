@@ -16,4 +16,11 @@
     copy:
       src: dotfiles/
       dest: /home/wyatt/.config
+  - name: setup dev environment
+  package:
+    name:
+      - rust
+  script: scripts/amp.sh
+  args:
+    executable: zsh
   
