@@ -12,4 +12,8 @@
         - alacritty
         - grimshot
         - wofi
+  - name: set config
+    copy:
+      src: config
+      dest: ~/.config
   
