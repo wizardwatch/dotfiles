@@ -21,7 +21,5 @@
       name:
         - rust
   - name: install amp text editor
-    script: scripts/amp.sh
-    args:
-      executable: zsh
+    command: cargo install amp
   
