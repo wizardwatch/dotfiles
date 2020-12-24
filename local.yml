@@ -20,7 +20,7 @@
   package:
     name:
       - rust
-  script: scripts/amp.sh
-  args:
-    executable: zsh
+  #script: scripts/amp.sh
+  #args:
+    #executable: zsh
   
