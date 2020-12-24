@@ -18,8 +18,8 @@
       dest: /home/wyatt/.config
   - name: setup dev environment
     package:
-    name:
-      - rust
+      name:
+        - rust
   #script: scripts/amp.sh
   #args:
     #executable: zsh
