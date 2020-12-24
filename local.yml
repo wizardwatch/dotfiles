@@ -16,10 +16,11 @@
     copy:
       src: dotfiles/
       dest: /home/wyatt/.config
-  - name: setup dev environment
+  - name: install dev packages
     package:
       name:
         - rust
+  - name: install amp text editor
     script: scripts/amp.sh
     args:
       executable: zsh
