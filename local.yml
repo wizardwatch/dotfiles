@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  - name: install de
+    package:
+      name:
+        - sway
+        - waybar
+        - alacritty
+        - grimshot
+        - wofi
+  
