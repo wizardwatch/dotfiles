@@ -10,7 +10,7 @@
         - sway
         - waybar
         - alacritty
-        - grimshot
+        - grim
         - wofi
   - name: set config
     copy:
