@@ -23,5 +23,5 @@
   - name: install dev packages 2/2
     command: cargo install amp
   - name: enable rust packages
-    command: export PATH=/home/wyatt/.cargo/bin:$PATH
+    command: export 'PATH=/home/wyatt/.cargo/bin:$PATH'
   
