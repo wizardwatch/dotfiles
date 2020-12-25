@@ -16,10 +16,12 @@
     copy:
       src: dotfiles/
       dest: /home/wyatt/.config
-  - name: install dev packages
+  - name: install dev packages 1/2
     package:
       name:
         - rust
-  - name: install amp text editor
+  - name: install dev packages 2/2
     command: cargo install amp
+  - name: enable rust packages
+    command: export PATH=/home/wyatt/.cargo/bin:$PATH
   
