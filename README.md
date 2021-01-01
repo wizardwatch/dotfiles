@@ -1,2 +1,2 @@
 # linuxconfig
-dotfiles and ansibile config
+dotfiles and ansible config for workstations
