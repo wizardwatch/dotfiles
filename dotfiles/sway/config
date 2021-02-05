@@ -38,7 +38,9 @@ input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
 #
 #
 ### autostart
-exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
+  exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
+  exec wl-paste -t text --watch clipman --no-persist store
+  exec /home/wyatt/.local/bin/discover-overlay
 ### Idle configuration
 #
 # Example configuration:
@@ -84,6 +86,8 @@ exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
   bindsym $mod+x kill
   # Start your launcher
   bindsym $mod+n exec $menu
+#clipboard
+  bindsym $mod+h exec clipman pick -t wofi
 #resize windows
   # Resize them with right mouse button + $mod.
   # Drag floating windows by holding down $mod and left mouse button.
@@ -171,8 +175,8 @@ exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
     # select and copy area of screen to clipboard
-    bindsym $mod+c exec grimshot copy area
-    bindsym $mod+shift+c exec grimshot save area
+    bindsym $mod+c exec grim -g "$(slurp)" - | wl-copy
+    bindsym $mod+shift+c exec grim -g "$(slurp)" - | tee /tmp/$(date +'%H%M%S-%Y-%m-%d.png')
     # Move focus to the parent container
     bindsym $mod+shift+p+q focus parent
 #
