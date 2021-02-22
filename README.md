@@ -1,2 +1,2 @@
 # linuxconfig
-dotfiles and ansible config for workstations
+dotfiles and an ansible or guix config for workstations
