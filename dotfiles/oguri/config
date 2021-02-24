@@ -1,0 +1,5 @@
+[output *]
+image=/home/wyatt/.config/sway/rain.gif
+filter=fast
+scaling-mode=fill
+anchor=center
