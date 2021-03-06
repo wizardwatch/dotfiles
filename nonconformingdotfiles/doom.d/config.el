@@ -68,3 +68,11 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+;;
+(centaur-tabs-mode 1)
+(setq centaur-tabs-set-icons 1)
+;;(global-unset-key [M-left])
+;;(global-unset-key [M-right])
+;;(global-set-key (kbd "<f7>") nil)
+(global-set-key (kbd "M-g <left>") 'centaur-tabs-backward)
+(global-set-key (kbd "M-g <right>") 'centaur-tabs-forward)
