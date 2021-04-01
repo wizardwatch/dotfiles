@@ -25,12 +25,12 @@ default_border pixel 5
 default_floating_border normal
 gaps inner 10
 gaps outer 10
-gaps left 40
+# gaps left 40
 #
 ### Output configuration
 #
 exec oguri-swaybg ~/.config/sway/nixos.png fill
-output HDMI-A-1 position 3440 0
+output HDMI-A-1 position 900 1440
 output DP-4 position 0,0
 input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
 #
@@ -38,19 +38,19 @@ input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
 #
 #
 ### autostart
-  exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
-  exec wl-paste -t text --watch clipman --no-persist store
-  exec /home/wyatt/.local/bin/discover-overlay
-  exec oguri
-  exec swaymsg output DP-2 disable
+exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
+exec wl-paste -t text --watch clipman --no-persist store
+exec /home/wyatt/.local/bin/discover-overlay
+exec oguri
+exec swaymsg output DP-2 disable
 ### Idle configuration
 #
 # Example configuration:
 #
- exec swayidle -w \
-   timeout 300 'swaylock -f -c 000000' \
-   timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-   before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+timeout 300 'swaylock -f -c 000000' \
+timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -75,21 +75,21 @@ input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
 # Basics:
 #
 #multimedia
-  #skip track
-  bindsym $mod+Shift+n exec playerctl next
-  #pause/unpause track
-  bindsym $mod+Shift+p exec playerctl pause
-  #go back a track
-  bindsym $mod+Shift+b exec playerctl previous
-#run/stop applications
+  # skip track
+    bindsym $mod+Shift+n exec playerctl next
+  # pause/unpause track
+    bindsym $mod+Shift+p exec playerctl pause
+  # go back a track
+    bindsym $mod+Shift+b exec playerctl previous
+# run/stop applications
   # Start a terminal
-  bindsym $mod+Return exec $term
+    bindsym $mod+Return exec $term
   # Kill focused window
-  bindsym $mod+x kill
+    bindsym $mod+x kill
   # Start your launcher
-  bindsym $mod+n exec $menu
-#clipboard
-  bindsym $mod+h exec clipman pick -t wofi
+    bindsym $mod+n exec $menu
+  #clipboard (not working)
+    bindsym $mod+h exec clipman pick -t wofi
 #resize windows
   # Resize them with right mouse button + $mod.
   # Drag floating windows by holding down $mod and left mouse button.
@@ -97,40 +97,43 @@ input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
   # Change normal to inverse to use left mouse button for resizing and right
   # mouse button for dragging.
   floating_modifier $mod normal
-
-    # Reload the configuration file
-    bindsym $mod+Shift+r reload
-
-    # Exit sway (logs you out of your Wayland session)
-       bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-    #
+# Reload the configuration file
+  bindsym $mod+Shift+r reload
+# Exit sway (logs you out of your Wayland session)
+  bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
 # Moving around:
 #
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
-
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+# Move your focus around
+  bindsym $mod+$left focus left
+  bindsym $mod+$down focus down
+  bindsym $mod+$up focus up
+  bindsym $mod+$right focus right
+# Or use $mod+[up|down|left|right]
+  bindsym $mod+Left focus left
+  bindsym $mod+Down focus down
+  bindsym $mod+Up focus up
+  bindsym $mod+Right focus right
+#
+# Move the focused window with the same, but add Shift
+#
+  bindsym $mod+Shift+$left move left
+  bindsym $mod+Shift+$down move down
+  bindsym $mod+Shift+$up move up
+  bindsym $mod+Shift+$right move right
+#
+# Ditto, with arrow keys
+#
+  bindsym $mod+Shift+Left move left
+  bindsym $mod+Shift+Down move down
+  bindsym $mod+Shift+Up move up
+  bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
-    # Switch to workspace
+  #
+  # Switch to workspace
+  #
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
     bindsym $mod+3 workspace number 3
@@ -141,7 +144,9 @@ input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
     bindsym $mod+8 workspace number 8
     bindsym $mod+9 workspace number 9
     bindsym $mod+0 workspace number 10
-    # Move focused container to workspace
+  #
+  # Move focused container to workspace
+  #
     bindsym $mod+Shift+1 move container to workspace number 1
     bindsym $mod+Shift+2 move container to workspace number 2
     bindsym $mod+Shift+3 move container to workspace number 3
@@ -155,50 +160,41 @@ input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
-# Layout stuff:
+# Make the current focus fullscreen
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
-    bindsym $mod+v splitv
-
-    # Switch the current container between different layout styles
-    bindsym $mod+shift+l layout stacking
-    bindsym $mod+shift+t layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
-
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
-
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
-    # select and copy area of screen to clipboard
-    bindsym $mod+c exec grim -g "$(slurp)" - | wl-copy
-    bindsym $mod+shift+c exec /home/wyatt/.config/screenshot.sh
-    # Move focus to the parent container
-    bindsym $mod+shift+p+q focus parent
+  bindsym $mod+f fullscreen
+#
+# Toggle the current focus between tiling and floating mode
+#
+  bindsym $mod+Shift+space floating toggle
+#
+# Swap focus between the tiling area and the floating area
+#
+  bindsym $mod+space focus mode_toggle
+#
+# select and copy area of screen to clipboard
+#
+  bindsym $mod+c exec grim -g "$(slurp)" - | wl-copy
+  bindsym $mod+shift+c exec /home/wyatt/.config/screenshot.sh
 #
 # Scratchpad:
 #
   bindsym $mod+Shift+minus move scratchpad
   bindsym $mod+minus scratchpad show
-
-bindsym $mod+Shift+o exec  discover-overlay
+  bindsym $mod+Shift+o exec  discover-overlay
 #
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    swaybar_command waybar
-}
-
-include /etc/sway/config.d/*
-client.focused          #ffffff #285577 #ebdbb2 #ebdbb2     #ffffff
-client.focused_inactive #888888 #5f676a #ffffff #404040     #888888
-client.unfocused        #bbbbbb #222222 #cccccc #404040     #bbbbbb
-client.urgent           #900000 #900000 #ffffff #900000     #900000
-client.placeholder      #0c0c0c #0c0c0c #ffffff #404040     #404040
+  bar {
+      swaybar_command waybar
+  }
+  include /etc/sway/config.d/*
+#
+# colors:
+#
+  client.focused          #ffffff #285577 #ebdbb2 #ebdbb2     #ffffff
+  client.focused_inactive #888888 #5f676a #ffffff #404040     #888888
+  client.unfocused        #bbbbbb #222222 #cccccc #404040     #bbbbbb
+  client.urgent           #900000 #900000 #ffffff #900000     #900000
+  client.placeholder      #0c0c0c #0c0c0c #ffffff #404040     #404040
