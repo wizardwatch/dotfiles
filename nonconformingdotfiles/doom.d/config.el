@@ -108,6 +108,6 @@
 ;;(setq auto-indent-untabify-on-save-file 'tabify)
 (setq auto-indent-untabify-on-visit-file 'tabify)
 (setq auto-indent-mode-untabify-on-yank-or-paste nil)
-(setq auto-indent-indent-style 'aggressive)
+;;(setq auto-indent-indent-style 'aggressive)
 (setq doom-font (font-spec :family "JetBrains Mono" :size 18))
 ;;(setq auto-indent-disabled-modes-list 'org-mode) will break everything if uncommented
