@@ -18,7 +18,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show run
+set $menu wofi --show run -i
 #
 ### borders
 default_border pixel 5
@@ -29,7 +29,7 @@ gaps outer 10
 #
 ### Output configuration
 #
-exec oguri-swaybg ~/.config/sway/nixos.png fill
+# exec oguri-swaybg ~/.config/sway/nixos.png fill
 output HDMI-A-1 position 900 1440
 output DP-4 position 0,0
 input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
@@ -40,9 +40,10 @@ input 1386:934:Wacom_One_Pen_Display_13_Pen map_to_output HDMI-A-1
 ### autostart
 exec /run/current-system/sw/libexec/polkit-gnome-authentication-agent-1
 exec wl-paste -t text --watch clipman --no-persist store
-exec /home/wyatt/.local/bin/discover-overlay
+# exec /home/wyatt/.local/bin/discover-overlay
 exec oguri
 exec swaymsg output DP-2 disable
+exec systemctl --user import-environment
 ### Idle configuration
 #
 # Example configuration:
@@ -181,7 +182,7 @@ before-sleep 'swaylock -f -c 000000'
 #
   bindsym $mod+Shift+minus move scratchpad
   bindsym $mod+minus scratchpad show
-  bindsym $mod+Shift+o exec  discover-overlay
+  bindsym $mod+Shift+o exec pulseeffects -w
 #
 # Status Bar:
 #
