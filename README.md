@@ -1,2 +1,2 @@
 # My dotfiles
-dotfiles and nix config. Needs major refactor to migrate from ansible to nix and *to* actually use as a one stop system setup.
+Now using https://github.com/wizardwatch/flake
